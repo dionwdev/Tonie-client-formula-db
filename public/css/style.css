@@ -1,0 +1,115 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+font-size: 62.5%;
+overflow-y: scroll;
+
+}
+body.tonie-b{
+font-family: 'Roboto', sans-serif   ;
+margin-bottom: 30px;
+}
+
+html{
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+position: fixed;
+bottom: 0;
+width: 100%;
+height:30px ;
+background:#8aa0a9;
+font-size: 0.6rem;
+color:white;
+
+background: linear-gradient(0.25turn, #8aa0a9, #e591b8);
+}
+
+footer a{
+     text-decoration: none;
+     color:white;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+.static-background{
+     position: fixed;
+     top:0;
+     width: 100%;
+     height: 100%;
+     z-index: -10;
+     /* background-image:url('../images/bg.jpg'); */
+background-position: center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+height: 100%; 
+overflow: hidden;
+
+background: linear-gradient(0.65turn, #8aa0a9 10%, #e0e591 18% , #ffffff00 25%);
+opacity: 0.5;
+}
+
+button.tonie-b{
+     background-color:#324287;
+     border: 0px rgba(255, 255, 255, 0);
+}
+
+/* li.customer{
+     background-color:#2e81c3;
+     color:white;
+     border-radius: 5px;
+} */
+
+a.customer{
+     text-decoration: none;
+     color:black;
+}
+
+
+.tonieHeader h2{
+     font-size: 2rem;
+}
+
+button.customer{
+     width:100%;
+}
+
+i.typeColor{
+color: #d55560;
+}
+
+i.typeOther{
+     color: #75b7c1;
+     }

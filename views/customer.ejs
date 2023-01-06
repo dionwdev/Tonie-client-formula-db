@@ -1,0 +1,84 @@
+<%- include('partials/header') -%>
+<main class="container">
+  <div class="col-6">
+    <h2><%= customer.name %></h2>
+    <div class="row justify-content-between">
+      <%if(customer.user == user.id){ %>
+      <form
+        action="/customer/deleteCustomer/<%= customer.id %>?_method=DELETE"
+        method="POST"
+        class="col-3"
+      >
+        <button class="btn btn-primary fa fa-trash" type="submit"></button>
+      </form>
+      <%}%>
+    </div>
+  </div>
+  <div class="col-3 mt-5">
+    <p><%= customer.contact %></p>
+  </div>
+
+  <div class="col justify-content-center">
+    <section class="col-sm-12 col-lg-8 mt-3 addClient tonie-b">
+      <h3><img width="50" src="/imgs/plus.png">add formula</h3>
+      <form action="/formula/createFormula/<%= customer._id%>" method="POST">
+        <div class="mb-2">
+          <label for="entryType" class="form-label">Type</label>
+          <input type="radio"  id="colorFormula" name="entryType" value="color">Color
+          <input type="radio"  id="otherFormula" name="entryType" value="other">Other
+        </div>
+        <div class="mb-2">
+          <label for="title" class="form-label">label</label>
+          <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-2">
+          <label for="entry" class="form-label">formula</label>
+            <input type="text" class="form-control" id="entry" name="entry">
+        </div>
+      
+        <div class="mb-5 justify-content-center text-center">
+         <button type="submit" class="btn btn-primary tonie-b">add</button>
+        </div>
+      </form>
+    </section>
+   
+  
+
+    <section class="col-sm-12 col-lg-8 mt-3 addClient tonie-b">
+      <h4><img width="50" src="/imgs/toniepuzzle.png"> <%= customer.name %>'s formulas</h4>
+      <div class="col justify-content-center">
+        <ul class="col text-left list-unstyled">
+        <% for(var i=0; i<formulas.length; i++) {%>
+        <li>
+          <p>type:<%= formulas[i].entryType%></p>
+
+       
+
+
+          <h3>
+            <% if(formulas[i].entryType=="color"){ %>
+              <i class="fa solid fa-circle typeColor"></i>
+            <% } %>
+            <% if(formulas[i].entryType=="other"){ %>
+                <i class="fa solid fa-circle  typeOther"></i>
+            <% } %>
+            
+            
+            <%=formulas[i].title%></h3>
+          <button type="button" class="customer btn btn-primary tonie-b mb-2">
+         
+              <p><%= formulas[i].entry%></p>
+          </button>
+        </li>
+        <% } %>
+        </ul>   
+      </div>  
+    </section>
+  
+    
+
+    
+  </div>
+</main>
+
+<%- include('partials/footer') -%>

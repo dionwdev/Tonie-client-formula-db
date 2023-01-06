@@ -1,0 +1,41 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-12">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>Add a Customer</h2>
+            <form action="/customer/createCustomer" method="POST">
+              <div class="mb-3">
+                  <label for="name" class="form-label">name</label>
+                  <input type="text" class="form-control" id="name" name="name">
+              </div>
+              <div class="mb-3">
+                <label for="contact" class="form-label">contact</label>
+                <input type="text"  class="form-control" id="contact" name="contact">
+              </div>
+    
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+      <div class="col-12">
+        <ul class="col list-unstyled">
+        <% for(var i=0; i<customers.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/customer/<%= customers[i]._id%>">
+              <span><%= customers[i].name%></span>
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

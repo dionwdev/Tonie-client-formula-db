@@ -1,0 +1,44 @@
+<%- include('partials/header') -%>
+<main class="container">
+  <div class="col justify-content-center">
+    <section class="col-sm-12 col-lg-8 mt-3 addClient tonie-b">
+      <h3><img width="50" src="/imgs/plus.png">add client</h3>
+      <form action="/customer/createCustomer" method="POST">
+        <div class="mb-2">
+            <label for="name" class="form-label">name</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-2">
+          <label for="contact" class="form-label">contact</label>
+          <input type="text"  class="form-control" id="contact" name="contact">
+        </div>
+      
+        <div class="mb-5 justify-content-center text-center">
+         <button type="submit" class="btn btn-primary tonie-b">add</button>
+        </div>
+      </form>
+    </section>
+   
+  
+
+    <section class="col-sm-12 col-lg-8 mt-3 addClient tonie-b">
+      <h3><img width="50" src="/imgs/toniepuzzle.png"> <%= user.userName %>'s Clients</h3>
+      <div class="col justify-content-center">
+        <ul class="col text-left list-unstyled">
+        <% for(var i=0; i<customers.length; i++) {%>
+        <li>
+          <button type="button" class="customer btn btn-primary tonie-b mb-2" onclick="window.location.href='/customer/<%= customers[i]._id%>';">
+            <%= customers[i].name%>
+          </button>
+        </li>
+        <% } %>
+        </ul>   
+      </div>  
+    </section>
+  
+    
+
+    
+  </div>
+</main>
+<%- include('partials/footer') -%>
