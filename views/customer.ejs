@@ -7,9 +7,9 @@
       <form
         action="/customer/deleteCustomer/<%= customer.id %>?_method=DELETE"
         method="POST"
-        class="col-3"
+        class="col-3 "
       >
-        <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        <button class="btn btn-primary fa fa-trash tonie-b" type="submit"></button>
       </form>
       <%}%>
     </div>
@@ -23,9 +23,9 @@
       <h3><img width="50" src="/imgs/plus.png">add formula</h3>
       <form action="/formula/createFormula/<%= customer._id%>" method="POST">
         <div class="mb-2">
-          <label for="entryType" class="form-label">Type</label>
-          <input type="radio"  id="colorFormula" name="entryType" value="color">Color
-          <input type="radio"  id="otherFormula" name="entryType" value="other">Other
+          <label for="entryType" class="form-label">type</label>:
+          <i class="fa solid fa-circle typeColor"></i>color<input type="radio"  id="colorFormula" name="entryType" value="color">
+          <i class="fa solid fa-circle typeOther"></i>other<input type="radio"  id="otherFormula" name="entryType" value="other">
         </div>
         <div class="mb-2">
           <label for="title" class="form-label">label</label>
@@ -50,7 +50,6 @@
         <ul class="col text-left list-unstyled">
         <% for(var i=0; i<formulas.length; i++) {%>
         <li>
-          <p>type:<%= formulas[i].entryType%></p>
 
        
 
